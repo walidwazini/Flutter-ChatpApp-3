@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import './RegisterScreen.dart';
+import './LoginScreen.dart';
+
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
 
@@ -20,9 +23,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                  child: Image.asset('images/logo.png'),
-                  height: 60.0,
+                Hero(
+                  tag: 'logo' ,
+                  child: Container(
+                    child: Image.asset('images/logo.png'),
+                    height: 60.0,
+                  ),
                 ),
                 Text(
                   'Flash Chat',
@@ -40,11 +46,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
                 elevation: 5.0,
-                color: Colors.lightBlueAccent,
+                color: Colors.pinkAccent,
                 borderRadius: BorderRadius.circular(30.0),
                 child: MaterialButton(
                   onPressed: () {
-                    //Go to login screen.
+                    Navigator.pushNamed(context, LoginScreen.id);
                   },
                   minWidth: 200.0,
                   height: 42.0,
@@ -57,12 +63,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
-                color: Colors.blueAccent,
+                color: Colors.red,
                 borderRadius: BorderRadius.circular(30.0),
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    //Go to registration screen.
+                    Navigator.pushNamed(context, RegisterScreen.id);
                   },
                   minWidth: 200.0,
                   height: 42.0,

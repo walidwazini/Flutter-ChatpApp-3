@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import './RegisterScreen.dart';
 import './LoginScreen.dart';
+import '../widgets/RoundedButton.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -100,27 +101,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                 Navigator.pushNamed(context, LoginScreen.id);
               },
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegisterScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                    style: TextStyle(
-                        fontSize: 20, letterSpacing: 2, color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            RoundedButton(
+              title: 'Register',
+              colour: Colors.red,
+              onPressed: () {
+                Navigator.pushNamed(context, RegisterScreen.id);
+              },
+            )
           ],
         ),
       ),

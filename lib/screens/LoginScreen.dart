@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/RoundedButton.dart';
+import '../constants.dart';
 import './WelcomeScreen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -10,6 +11,17 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  bool _hiddenPass = true;
+
+  void _togglePassView(){
+    if (_hiddenPass == true){
+      _hiddenPass = false;
+    } else {
+      _hiddenPass = true;
+    }
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,48 +47,21 @@ class _LoginScreenState extends State<LoginScreen> {
               onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: InputDecoration(
-                hintText: 'Enter your email',
-                contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:
-                  BorderSide(color: Colors.lightBlueAccent, width: 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                  BorderSide(color: Colors.lightBlueAccent, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-              ),
+              decoration: kTextFieldDecoration.copyWith(hintText: 'Enter Your Email'),
             ),
             SizedBox(
               height: 8.0,
             ),
             TextField(
+              obscureText: _hiddenPass,
               onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: InputDecoration(
-                hintText: 'Enter your password.',
-                contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:
-                  BorderSide(color: Colors.lightBlueAccent, width: 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:
-                  BorderSide(color: Colors.lightBlueAccent, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
+              decoration: kTextFieldDecoration.copyWith(
+                hintText: 'Enter your Password',
+                suffixIcon: InkWell(
+                    onTap: _togglePassView,
+                    child: _hiddenPass? Icon(Icons.visibility_off) : Icon(Icons.visibility)
                 ),
               ),
             ),

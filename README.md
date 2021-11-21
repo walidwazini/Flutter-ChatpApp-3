@@ -1,4 +1,4 @@
-# chat_app_2
+# Chat App 3 : Flash Chat
 
 A new Flutter project.
 

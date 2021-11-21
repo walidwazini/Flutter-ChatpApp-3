@@ -20,13 +20,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   void initState() {
     // TODO: implement initState
     super.initState();
-
     controller = AnimationController(
       duration: Duration(seconds: 3),
       vsync: this,
       upperBound: 1,
     );
-
     //  animation = CurvedAnimation(parent: controller!, curve: Curves.easeIn);
     animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
         .animate(controller!);
@@ -95,26 +93,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.pinkAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
-                    style: TextStyle(
-                      fontSize: 20, letterSpacing: 2, color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
+            RoundedButton(
+              title: 'Log In',
+              colour: Colors.pinkAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -143,3 +127,4 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     );
   }
 }
+

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import './RegisterScreen.dart';
 import './LoginScreen.dart';
@@ -55,6 +57,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: animation!.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
@@ -71,14 +74,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                     height: 60,
                   ),
                 ),
-                Text(
-                  //'${controller!.value.toInt()}',
-                  'Flash Chat',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.w900,
+                // Text(
+                //   //'${controller!.value.toInt()}',
+                //   'Flash Chat',
+                //   style: TextStyle(fontSize: 45.0, fontWeight: FontWeight.w900),
+                // ),
+                DefaultTextStyle(
+                  style: GoogleFonts.lato(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
                   ),
-                ),
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      TyperAnimatedText('Flash Chat',textStyle: TextStyle(color: Colors.red,)),
+                    ],
+                  ),
+                )
               ],
             ),
             SizedBox(
@@ -98,6 +109,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                   height: 42.0,
                   child: Text(
                     'Log In',
+                    style: TextStyle(
+                      fontSize: 20, letterSpacing: 2, color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -116,6 +130,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                   height: 42.0,
                   child: Text(
                     'Register',
+                    style: TextStyle(
+                        fontSize: 20, letterSpacing: 2, color: Colors.white,
+                    ),
                   ),
                 ),
               ),

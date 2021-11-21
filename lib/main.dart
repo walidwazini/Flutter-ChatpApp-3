@@ -10,6 +10,9 @@ void main() => runApp(FlashChat());
 
 class FlashChat extends StatelessWidget {
   //const FlashChat({Key? key}) : super(key: key);
+  // final TextTheme themeOne = TextTheme(
+  //   bodyText1 : GoogleFonts.lateef(fontSize: 40, textStyle: TextStyle(color: Colors.pink)),
+  // );
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +21,7 @@ class FlashChat extends StatelessWidget {
         textTheme: GoogleFonts.latoTextTheme(
           Theme.of(context).textTheme,
         ),
+        //textTheme: themeOne,
       ),
       initialRoute: WelcomeScreen.id,
       routes: {

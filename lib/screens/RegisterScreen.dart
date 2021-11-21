@@ -1,3 +1,4 @@
+import 'package:chat_app_2/widgets/RoundedButton.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -10,6 +11,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+
+  String? email;
+  String? password;
 
   bool _hiddenPass = true;
 
@@ -45,7 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               TextField(
                 onChanged: (value) {
-                  //Do something with the user input.
+                 email = value;
                 },
                 decoration: kTextFieldDecoration.copyWith(hintText: 'Enter Your Email'),
               ),
@@ -55,7 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextField(
                 obscureText: _hiddenPass,
                 onChanged: (value) {
-                  //Do something with the user input.
+                  password = value;
                 },
                 decoration: kTextFieldDecoration.copyWith(
                   hintText: 'Enter your Password',
@@ -65,28 +69,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 24.0,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                child: Material(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                  elevation: 5.0,
-                  child: MaterialButton(
-                    onPressed: () {
-                      //Implement registration functionality.
-                    },
-                    minWidth: 200.0,
-                    height: 42.0,
-                    child: Text(
-                      'Register',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
+              SizedBox(height: 24.0,),
+             RoundedButton(
+               title: 'Register', colour: Colors.red,
+               onPressed: (){
+                 print(email);
+               },
+             )
             ],
           ),
         ),

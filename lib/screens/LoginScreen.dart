@@ -12,7 +12,11 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
+  String? email;
+  String? password;
+
   bool _hiddenPass = true;
+
 
   void _togglePassView(){
     if (_hiddenPass == true){
@@ -45,9 +49,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 48.0,
               ),
               TextField(
+                keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {
-                  //Do something with the user input.
+                  email = value;
                 },
+                
                 decoration: kTextFieldDecoration.copyWith(hintText: 'Enter Your Email'),
               ),
               SizedBox(

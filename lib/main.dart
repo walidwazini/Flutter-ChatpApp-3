@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:chat_app_2/screens/WelcomeScreen.dart';
 import 'screens/ChatScreen.dart';
 import 'screens/LoginScreen.dart';
 import 'package:chat_app_2/screens/RegisterScreen.dart';
 
-void main() => runApp(FlashChat());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(FlashChat());
+}
 
 class FlashChat extends StatelessWidget {
   //const FlashChat({Key? key}) : super(key: key);

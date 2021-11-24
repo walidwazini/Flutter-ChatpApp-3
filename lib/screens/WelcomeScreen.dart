@@ -16,6 +16,7 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin {
   AnimationController? controller;
   Animation? animation;
+  DateTime now = DateTime.now();
 
   @override
   void initState() {
@@ -42,7 +43,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
 
     controller!.addListener(() {
       setState(() {});
-      print(animation!.value);
     });
   }
 
@@ -107,7 +107,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               onPressed: () {
                 Navigator.pushNamed(context, RegisterScreen.id);
               },
-            )
+            ),
+            IconButton(onPressed: (){
+              print(now);
+            }, icon: Icon(Icons.access_alarm_outlined))
           ],
         ),
       ),

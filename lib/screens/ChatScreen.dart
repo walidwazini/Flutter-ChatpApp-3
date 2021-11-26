@@ -40,13 +40,6 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
-  // void getMessages() async {
-  //  final messages = await  _firestore.collection('messages').get();
-  //  for ( var message in  messages.docs) {
-  //    print(message.data());
-  //  }
-  // }
-
   void messagesStream() async {
     await for (var firebaseSnapshot
         in _firestore.collection('messages').snapshots()) {
@@ -64,9 +57,8 @@ class _ChatScreenState extends State<ChatScreen> {
         actions: <Widget>[
           IconButton(
             onPressed: () {
-              messagesStream();
             },
-            icon: Icon(Icons.account_balance_outlined),
+            icon: Icon(Icons.menu),
           ),
           IconButton(
               icon: Icon(Icons.close),
@@ -158,6 +150,7 @@ class MessagesStream extends StatelessWidget {
         }
         return Expanded(
           child: ListView(
+            reverse: true,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             children: messageWidgets,
           ),
